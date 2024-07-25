@@ -2,20 +2,8 @@ import { FunctionComponent } from "react";
 import { getEmoji } from "src/utils/generalUtils";
 import { ReactComponent as Dots } from "src/assets/icons/dots.svg";
 import { ReactComponent as Comments } from "src/assets/icons/message.svg";
-interface UserDetails {
-  profilePicture: string;
-  username: string;
-  timeAgo: string;
-  isEdited: boolean;
-  emoji: string;
-  message: string;
-  comments: { id: number; value: string }[];
-}
+import { PostProps } from "./types";
 
-interface PostProps {
-  userData: UserDetails;
-  onClicked: () => void;
-}
 
 const Post: FunctionComponent<PostProps> = (props) => {
   const { userData, onClicked } = props;
@@ -29,7 +17,10 @@ const Post: FunctionComponent<PostProps> = (props) => {
     comments,
   } = userData;
   return (
-    <div className="bg-primary py-6 px-5 rounded-lg mt-6" onClick={onClicked}>
+    <div
+      className="bg-primary py-6 px-5 rounded-lg mt-6 cursor-pointer"
+      onClick={onClicked}
+    >
       <div className="flex items-center mb-4">
         <div className="h-11 w-11">
           <img
