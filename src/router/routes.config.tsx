@@ -5,10 +5,14 @@ import Home from "src/pages/home";
 export const routeConfig = createBrowserRouter([
   {
     path: "/",
+    element: <Auth />,
+  },
+  {
+    path: "/home",
     element: <Home />,
   },
   {
-    path: "/auth",
+    path: "*",
     element: <Auth />,
   },
 ]);

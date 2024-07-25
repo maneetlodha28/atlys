@@ -16,7 +16,7 @@ const AuthContainer: FunctionComponent<AuthContainerProps> = (props) => {
   }, []);
 
   const handleSuccess = useCallback(() => {
-    navigate("/");
+    navigate("/home");
     if (onClose) onClose();
   }, [navigate, onClose]);
 
