@@ -4,11 +4,14 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Routes
 
-### 1. /auth
+### 1. /
 This route serves as the entry point for authentication processes, including login and registration functionalities.
 
 ### 2. /home
 This route provides access to the main content, where users can view available posts.
+
+### 3. /*
+Anyother route then mentioned above will take user to the auth page. 
 
 ## Available Scripts
 
