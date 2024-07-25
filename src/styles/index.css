@@ -1,7 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@import "./overrides/colors.css";
+@import "./overrides/borders.css";
+@import "./overrides/typography.css";
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
 
 

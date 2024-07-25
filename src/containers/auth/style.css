@@ -1,7 +1,29 @@
-
-
-.login-container{
-    border: 2px solid;
-    border-image-source: linear-gradient(129.59deg, #969696 0%, #343434 98.18%);
+.auth-container {
+    position: relative;
     background-color: #27292D;
+    border-radius: 8px; 
+    padding: 2px; 
+    overflow: hidden; 
+    width: 463px;
 }
+
+.auth-container::before {
+    content: '';
+    position: absolute;
+    top: -2px; 
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    z-index: 0;
+    background: linear-gradient(129.59deg, #969696 0%, #343434 98.18%);
+    border-radius: inherit;
+}
+
+.auth-container .content {
+    position: relative; 
+    z-index: 1;
+    background: #27292D;
+    border-radius: inherit; 
+    padding:40px 20px;
+}
+

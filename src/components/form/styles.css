@@ -1,0 +1,21 @@
+.btn-primary {
+  height: 43px;
+  border-radius: 4px;
+  background-color: #4a96ff;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19.36px;
+  color: #ffffff;
+}
+
+input {
+  border: 1.5px solid #35373b;
+  border-radius: 4px;
+  height: 43px;
+}
+
+input::placeholder {
+  color: #7f8084;
+  font-weight: 400;
+  font-size: 16px;
+}

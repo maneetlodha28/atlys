@@ -1,51 +1,41 @@
-//
 import { FunctionComponent, useState } from "react";
+import CreatePost from "../../containers/home/createPost";
+import Post from "../../containers/home/post";
+import "./style.css";
+import { dummyUsersData } from "src/constants/usersData";
 import Modal from "src/components/modal";
-// import SignUpForm from "src/components/signupForm";
-import CreatePost from "./createPost";
-import Post from "./post";
-const user = {
-  profilePicture: "https://i.pravatar.cc/100",
-  username: "Marvin McKinney",
-  timeAgo: "8 mins ago",
-  isEdited: true,
-  emoji: "😢",
-  message:
-    "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.",
-  commentsCount: 24,
-};
-const Home: FunctionComponent = () => {
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+import AuthContainer from "src/containers/auth";
 
-  const handleOpenModal = () => setIsModalOpen(true);
-  const handleCloseModal = () => setIsModalOpen(false);
+const Home: FunctionComponent = () => {
+  const [showAuthModal, setShowAuthModal] = useState(false);
+
+  const handleCloseModal = () => {
+    setShowAuthModal(false);
+  };
+  const handlePost = () => {
+    setShowAuthModal(true);
+  };
 
   return (
-    // <div className="p-4">
-    //   <button
-    //     className="bg-blue-500 text-white px-4 py-2 rounded"
-    //     onClick={handleOpenModal}
-    //   >
-    //     Open Modal
-    //   </button>
+    <div className="home-page">
+      <p className="text-2xl text-primary">Hello Jane</p>
+      <p className="mt-3 text-secondary text-lg">
+        How are you doing today? Would you like to share something with the
+        community 🤗
+      </p>
 
-    //   <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
-    //     <h1 className="text-xl font-bold">Modal Title</h1>
-    //     <p>This is a modal content.</p>
-    //     <button
-    //       className="mt-4 bg-red-500 text-white px-4 py-2 rounded"
-    //       onClick={handleCloseModal}
-    //     >
-    //       Close
-    //     </button>
-    //   </Modal>
-    // </div>
-    <>
-      {/* <SignUpForm /> */}
-      <CreatePost />
+      <CreatePost onPostClick={handlePost} />
+
       <div className="mt-4" />
-      <Post userData={user} onMoreOptionsClicked={() => {}} />
-    </>
+
+      {dummyUsersData.map((user) => (
+        <Post key={user.id} userData={user} onClicked={handlePost} />
+      ))}
+
+      <Modal isOpen={showAuthModal} onClose={handleCloseModal}>
+        <AuthContainer onClose={handleCloseModal} />
+      </Modal>
+    </div>
   );
 };
 

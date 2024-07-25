@@ -1,21 +1,28 @@
-import React from "react";
-
-interface ButtonProps {
+import React, { ButtonHTMLAttributes } from "react";
+import "./styles.css";
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   className?: string;
   children: React.ReactNode;
   fullWidth?: boolean;
+  variant?: "primary" | "secondary";
 }
 
 const Button: React.FC<ButtonProps> = ({
   onClick,
   className,
   children,
+  variant = "primary",
   fullWidth = false,
   ...restProps
 }) => {
-  const baseClasses =
-    "bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500";
+  const getButtonBaseClasses = () => {
+    switch (variant) {
+      case "primary":
+        return "btn-primary";
+    }
+  };
+  const baseClasses = getButtonBaseClasses();
   const widthClass = fullWidth ? "w-full" : "";
 
   return (

@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
+import Auth from "src/pages/auth";
 import Home from "src/pages/home";
-import AuthContainer from "src/containers/auth";
 
 export const routeConfig = createBrowserRouter([
   {
@@ -8,7 +8,7 @@ export const routeConfig = createBrowserRouter([
     element: <Home />,
   },
   {
-    path: "/login",
-    element: <AuthContainer />,
+    path: "/auth",
+    element: <Auth />,
   },
 ]);

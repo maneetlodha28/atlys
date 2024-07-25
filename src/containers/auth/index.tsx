@@ -21,27 +21,29 @@ const AuthContainer: FunctionComponent<AuthContainerProps> = (props) => {
   }, [navigate, onClose]);
 
   return (
-    <div className="login-container text-gray-300 py-10 relative px-6 rounded-lg shadow-lg w-96 text-center">
-      {onClose && typeof onClose === "function" ? (
-        <div
-          className="p-2 absolute top-4 right-4 cursor-pointer rounded-full"
-          style={{ background: "#131319" }}
-          onClick={onClose}
-        >
-          <Cross />
-        </div>
-      ) : null}
-      {isLoginForm ? (
-        <LoginForm
-          onLoginSuccess={handleSuccess}
-          handleRegister={() => setIsLoginForm(false)}
-        />
-      ) : (
-        <SignUpForm
-          onRegisterSuccess={handleSuccess}
-          handleLogin={() => setIsLoginForm(true)}
-        />
-      )}
+    <div className="auth-container relative rounded-lg shadow-lg w-96 text-center">
+      <div className="content">
+        {onClose && typeof onClose === "function" ? (
+          <div
+            className="p-2 absolute top-4 right-4 cursor-pointer rounded-full"
+            style={{ background: "#131319" }}
+            onClick={onClose}
+          >
+            <Cross />
+          </div>
+        ) : null}
+        {isLoginForm ? (
+          <LoginForm
+            onLoginSuccess={handleSuccess}
+            handleRegister={() => setIsLoginForm(false)}
+          />
+        ) : (
+          <SignUpForm
+            onRegisterSuccess={handleSuccess}
+            handleLogin={() => setIsLoginForm(true)}
+          />
+        )}
+      </div>
     </div>
   );
 };

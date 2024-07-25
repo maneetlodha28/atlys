@@ -1,7 +1,4 @@
-
-
-.create-post-container{
-    margin: auto;
-    max-width: 1240px;
-    background-color: #27292D;
+.home-page {
+  margin: 70px auto;
+  max-width: 720px;
 }

@@ -1,6 +1,6 @@
-import React from "react";
+import React, { LabelHTMLAttributes } from "react";
 
-interface LabelProps {
+interface LabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
   htmlFor: string;
   text: string;
   className?: string;
@@ -14,8 +14,8 @@ const Label: React.FC<LabelProps> = ({
   additionalElement,
 }) => {
   return (
-    <div className={`flex justify-between items-center mb-2 ${className}`}>
-      <label htmlFor={htmlFor} className="text-sm">
+    <div className={`flex justify-between items-center w-full ${className}`}>
+      <label htmlFor={htmlFor} className="text-sm text-primary">
         {text}
       </label>
       {additionalElement}
