@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
 import { ModalProps } from "./types";
 
@@ -8,6 +8,15 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
       onClose();
     }
   };
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add("overflow-hidden");
+    }
+    return () => {
+      document.body.classList.remove("overflow-hidden");
+    };
+  }, [isOpen]);
 
   if (!isOpen) return null;
 
