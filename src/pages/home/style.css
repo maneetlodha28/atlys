@@ -2,3 +2,10 @@
   margin: 70px auto;
   max-width: 720px;
 }
+
+
+@media (max-width:768px) {
+    .home-page{
+        max-width: 360px;
+    }
+}
